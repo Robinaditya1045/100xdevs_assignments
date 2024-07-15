@@ -15,6 +15,9 @@ const jwtPassword = 'secret';
  */
 function signJwt(username, password) {
     // Your code here
+    const token = jwt.sign({username:username}, jwtPassword)
+    const decoded = jwt.decode(token)
+    return decoded.username
 }
 
 /**
@@ -27,6 +30,8 @@ function signJwt(username, password) {
  */
 function verifyJwt(token) {
     // Your code here
+    const decoded = jwt.sign(token, jwtPassword)
+    return decoded
 }
 
 /**
@@ -37,7 +42,11 @@ function verifyJwt(token) {
  *                         Returns false if the token is not a valid JWT format.
  */
 function decodeJwt(token) {
-    // Your code here
+    // Your 
+
+    const decoded = jwt.verify(token, jwtPassword)
+    const palyload = JSON.stringify(decoded)
+    return palyload
 }
 
 
